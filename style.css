@@ -43,7 +43,7 @@ body {
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #FFF1CA;
-  color: black;
+  color: #18230F;
   
 }
 
@@ -169,8 +169,8 @@ body {
 
 .option-columns {
   display: flex;
-  justify-content: space-between;
-  gap: 50px;
+ 
+  gap: 40px;
   margin-top: 20px;
 }
 
@@ -259,6 +259,5 @@ body {
   display: block; /* removes inline spacing */
   margin: 40px auto; /* centers the image */
 }
-
 
 
