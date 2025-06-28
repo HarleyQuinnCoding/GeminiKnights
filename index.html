@@ -17,7 +17,7 @@
         <a class="active" href="#about">About</a>
         <a href="#options">Options</a>
         <a href="#smart_fridge_section">Smart Fridge</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Contact Us</a>
     </div>
 
     <main class="main-content">
@@ -29,62 +29,84 @@
             </div>
         </div>
 
-        <div class="option" id="options">
-            <h2>Dietary Options:</h2>
-            <p>Please select your dietary restrictions:</p>
-            <div class="option-columns">
-                <div class="column">
-                    <label><input type="checkbox" class="diet" value="Vegan"> Vegan</label>
-                    <label><input type="checkbox" class="diet" value="Vegetarian"> Vegetarian</label>
-                    <label><input type="checkbox" class="diet" value="Dairy-free"> Dairy-free</label>
-                </div>
-                <div class="column">
-                    <label><input type="checkbox" class="diet" value="Pescatarian"> Pescatarian</label>
-                    <label><input type="checkbox" class="diet" value="Keto"> Keto</label>
-                    <label><input type="checkbox" class="diet" value="Halal"> Halal</label>
+        <br><br><br><br><br><br>
+
+        <div class="option-section">
+            <div class="option" id="options">
+                <h2>Options:</h2>
+                <p>Please select your dietary restrictions:</p>
+                <div class="option-columns">
+                    <div class="column">
+                        <label><input type="checkbox" class="diet" value="Vegan"> Vegan</label>
+                        <label><input type="checkbox" class="diet" value="Vegetarian"> Vegetarian</label>
+                        <label><input type="checkbox" class="diet" value="Dairy-free"> Dairy-free</label>
+                    </div>
+                    <div class="column">
+                        <label><input type="checkbox" class="diet" value="Pescatarian"> Pescatarian</label>
+                        <label><input type="checkbox" class="diet" value="Keto"> Keto</label>
+                        <label><input type="checkbox" class="diet" value="Halal"> Halal</label>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
 
-    <section class="smart-fridge-section" id="smart_fridge_section">
-        <div class="smart-fridge-overlay-content">
-            <form class="recipe-form" id="smartFridgeRecipeForm">
-                <input type="text" id="smartFridgeIngredient" name="ingredient" placeholder="Main Ingredient:" required> <button type="submit">Get Recipe</button>
-            </form>
+        <br><br><br><br><br><br>
 
-            <div id="loading">Generating recipe... This might take a moment.</div>
-            <div id="errorMessage"></div>
-            <div id="generatedRecipeOutput">
-                <h3>Recipe Idea will appear here!</h3>
-                <p>Start by typing an ingredient above.</p>
+        <section class="smart-fridge-section" id="smart_fridge_section">
+            <div class="smart-fridge-overlay-content">
+
+                <form class="recipe-form" id="smartFridgeRecipeForm">
+                    <input type="text" id="smartFridgeIngredient" name="ingredient" placeholder="Main Ingredient:" required>
+                    <button type="submit">Get Recipe</button>
+                </form>
+
+                <div id="loading"></div>
+                <div id="errorMessage"></div>
+                <div id="generatedRecipeOutput" style="display: none;">
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="contact" id="contact">
+        <br><br><br>
+        <h2>Contact Us:</h2>
+        <div class="contact-row">
+            <div class="contact-card">
+                <strong>Name:</strong> Sejal Mogalgiddi <br>
+                <strong>Email:</strong> <a href="mailto:se731266@ucf.edu">se731266@ucf.edu</a><br>
+                <strong>Role:</strong> UI/UX design, AI integration with JS<br>
+                <strong>Zodiac sign:</strong> Taurus <br>
+            </div>
+
+            <div class="contact-card">
+                <strong>Name:</strong> Samentha Simmons <br>
+                <strong>Email:</strong> <a href="mailto:sa263101@ucf.edu">sa263101@ucf.edu</a><br>
+                <strong>Role:</strong> AI application<br>
+                <strong>Zodiac sign:</strong> Aquarius <br>
+            </div>
+
+            <div class="contact-card">
+                <strong>Name:</strong> Michelle Moise <br>
+                <strong>Email:</strong> <a href="mailto:mi227011@ucf.edu">mi227011@ucf.edu</a><br>
+                <strong>Role:</strong> Graphic Design, UI/UX design <br>
+                <strong>Zodiac sign:</strong> Gemini <br>
+            </div>
+
+            <div class="contact-card">
+                <strong>Name:</strong> Apoorva Thirukazhukundram Shakila Raja <br>
+                <strong>Email:</strong> <a href="mailto:ap365218@ucf.edu">ap365218@ucf.edu</a><br>
+                <strong>Role:</strong> AI application <br>
+                <strong>Zodiac sign:</strong> Sagittarius <br>
             </div>
         </div>
-    </section>
-    <div class="contact" id="contact"><br><br><br> Contact us:<br>
-        Name: Sejal _________ <br>
-        Email: <a href="mailto:se731266@ucf.edu"> se731266@ucf.edu <br></a>
-        Role: _______ <br>
-        Zodiac sign: ______ <br>
-        Hobbies: _________ &nbsp;
-
-        Name: Samentha _________ <br>
-        &nbsp;Email: _____@ucf =.edu <br>
-        &nbsp;Role: _______ <br>
-        &nbsp;Zodiac sign: ______ <br>
-        Hobbies: _________ <br>
-
-        Name: Michelle Moise <br>
-        Email: _____@ucf =.edu <br>
-        Role: _______ <br>
-        Zodiac sign: ______ <br>
-        Hobbies: _________ <br>
-
-        Name: Apoorva Thirukazhukundram Shakila Raja <br>
-        Email: ap365218@ucf =.edu <br>
-        Role: _______ <br>
-        Zodiac sign: _____ <br>
-        Hobbies: _________ <br>
     </div>
 
     <script>
@@ -98,6 +120,7 @@
             const recipeOutput = document.getElementById('generatedRecipeOutput');
             const loadingIndicator = document.getElementById('loading');
             const errorMessage = document.getElementById('errorMessage');
+            const smartFridgeSection = document.getElementById('smart_fridge_section');
 
             // --- Collect selected dietary restrictions ---
             const selectedDietaryRestrictions = [];
@@ -106,14 +129,21 @@
             });
             // ------------------------------------------
 
-            recipeOutput.innerHTML = `<h3>Recipe Idea will appear here!</h3><p>Generating...</p>`;
-            errorMessage.textContent = '';
-            loadingIndicator.style.display = 'block';
+            // Hide the recipe output initially, clear error
+            recipeOutput.style.display = 'none'; // Hide the output container
+            recipeOutput.innerHTML = `<h3>Recipe Idea will appear here!</h3><p>Generating...</p>`; // Clear content
+            errorMessage.textContent = ''; // Clear previous errors
+            loadingIndicator.style.display = 'block'; // Show loading message
+
+            // --- Change fridge image to open state ---
+            smartFridgeSection.classList.add('fridge-open');
+            // ------------------------------------------
 
             if (!ingredient) {
                 errorMessage.textContent = 'Please enter a main ingredient.';
                 loadingIndicator.style.display = 'none';
-                recipeOutput.innerHTML = `<h3>Recipe Idea will appear here!</h3><p>Start by typing an ingredient above.</p>`;
+                // recipeOutput.style.display = 'none'; // Keep hidden
+                smartFridgeSection.classList.remove('fridge-open');
                 return;
             }
 
@@ -123,12 +153,10 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    // --- Send both ingredient and dietary restrictions ---
                     body: JSON.stringify({
                         ingredient: ingredient,
                         dietaryRestrictions: selectedDietaryRestrictions
                     }),
-                    // ----------------------------------------------------
                 });
 
                 if (!response.ok) {
@@ -143,13 +171,17 @@
                 formattedRecipe = formattedRecipe.replace(/Instructions:/g, '<strong>Instructions:</strong>');
 
                 recipeOutput.innerHTML = `<h3>Your AI-Generated Recipe for "${ingredientInput.value}":</h3>${formattedRecipe}`;
+                recipeOutput.style.display = 'block'; // Show the output container only on success
 
             } catch (error) {
                 console.error('Error fetching recipe:', error);
                 errorMessage.textContent = `Error generating recipe: ${error.message}. Please ensure your backend server is running correctly.`;
-                recipeOutput.innerHTML = `<h3>Recipe Generation Failed</h3><p>Please try again or check your backend server.</p>`;
+                // recipeOutput.style.display = 'none'; // Keep hidden on error
             } finally {
                 loadingIndicator.style.display = 'none';
+                // --- Revert fridge image to closed state after generation (success or fail) ---
+                smartFridgeSection.classList.remove('fridge-open');
+                // --------------------------------------------------------------------------
             }
         });
 
