@@ -1,263 +1,510 @@
+/*-----------HTML & BODY BASE-----------*/
 html {
-  height: 100%;
-  width: 100%;
-    scroll-behavior: smooth;
-  
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth; /* For smooth scrolling to sections */
 }
 
 body {
-  background-color: #F7edd2;
+    background-color: #F7edd2; /* Updated body background color */
+    margin: 0; /* Ensure no default body margin */
+    padding-top: 60px; /* Add padding for fixed topnav height */
 }
 
 /*-----------FONTS-----------*/
 .jersey-10-regular {
-  font-family: "Jersey 10", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-/*-----------FONTS-----------*/
-
+/*-----------TOP NAVIGATION-----------*/
 .topnav {
-  background-color: #D1D8BE;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
+    background-color: #D1D8BE; /* Updated topnav background color */
+    overflow: hidden;
+    position: fixed; /* Stays at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* Ensure it's above other content */
+    text-align: center; /* Center the navigation links */
+    padding: 0; /* Reset padding here, links will have their own */
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
-  color: black;
-  font-family: "Jersey 10", sans-serif;
-  font-size: 25px;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  
+    float: none; /* Disable float to use inline-block for centering */
+    display: inline-block; /* Allows horizontal centering with text-align: center on parent */
+    color: black;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #FFF1CA;
-  color: #18230F;
-  
+    background-color: #FFF1CA; /* Updated hover background color */
+    color: #18230F; /* Updated hover text color */
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  font-family: "Jersey 10", sans-serif;
-  font-size: 25px;
-  background-color: #708A58;
-  color: white;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 25px;
+    background-color: #708A58; /* Updated active link background color */
+    color: white;
 }
 
-
-
-
+/*-----------MAIN CONTENT & HERO SECTION-----------*/
 .main-content {
-
-  margin-top: 0;
-  position: relative;
-  /* Establish positioning context for children if needed */
-  width: 100%;
-  /* No min-height here unless you want main to always be full height */
+    margin-top: 0;
+    position: relative;
+    width: 100%;
 }
 
 .image-and-text-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  /* full viewport height */
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh; /* full viewport height */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content vertically */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
 }
 
 .welcome-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  /* Ensure image is visible, above body background. No need for -1 */
-  filter: brightness(0.5);
-  /* Optional: Darken image slightly for text readability */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: brightness(0.5); /* Darken image slightly for text readability */
 }
 
 .overlay-text {
-  position: absolute;
-  /* Position relative to .image-and-text-container */
-  top: 50%;
-  /* Start at vertical center */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 800px;
-  text-align: center;
-  color: white;
-  z-index: 2;
+    position: relative;
+    z-index: 2; /* Bring text above the image */
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .content {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-family: "Jersey 10", sans-serif;
-  font-size: 50px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .content2 {
-  margin-top: 0;
-  /* Reset default h2 margin */
-  font-family: "Jersey 10", sans-serif;
-  font-size: 25px;
-  font-weight: 100;
-  line-height: 1.6;
-  /* Improve readability of body text */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-  /* Optional: Add text shadow */
+    margin-top: 0;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
+
+/*-----------OPTIONS SECTION-----------*/
+/* Wrapper for the option box, handles spacing */
 .option-section {
-  display: flex;
-  justify-content: center;
-  padding: 60px 0;
-  background-color: transparent; /* no image here */
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+    background-color: transparent; /* No background image on this wrapper */
+    margin-top: 60px; /* Added margin to separate from hero section */
 }
+
 .option {
-  background-image: url("fruits-vegetables.jpg"); /* or "doback.png" */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  border-radius: 15px;
-  padding: 40px;
-  text-align: center;
-  max-width: 700px;
-  width: 100%;
-
-  font-family: "Jersey 10", sans-serif;
-  font-size: 40px;
-  color: black;
-
-  /* Optional: add a semi-white overlay inside the box for readability */
-  position: relative;
+    background-image: url("fruits-vegetables.jpg"); /* Background image for the option box */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 70px;
+    text-align: center;
+    max-width: 700px; /* Max width for the option box */
+    width: 100%;
+    font-family: "Jersey 10", sans-serif;
+    color: black; /* Default text color for this section */
+    position: relative; /* Needed for ::before pseudo-element */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Added shadow */
+    box-sizing: border-box; /* Include padding in width */
 }
 
-.option::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(255, 255, 255, 0.8); /* translucent white layer */
-  border-radius: 15px;
-  z-index: 1;
+.option::before { /* Translucent white overlay for readability over image */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* 80% opaque white overlay */
+    border-radius: 15px;
+    z-index: 1;
 }
 
-.option * {
-  position: relative;
-  z-index: 2; /* keeps text above the overlay */
+.option * { /* Ensure all children are above the overlay */
+    position: relative;
+    z-index: 2;
+}
+
+.option h2 { /* Specific styling for h2 inside option */
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #333; /* Darker color for readability on light background */
 }
 
 .option p {
-  font-size: 25px;
-  color: #555;
-  margin-top: 10px;
+    font-size: 30px; /* Adjust font size for the paragraph */
+    color: #555; /* Slightly darker for readability */
+    margin-top: 10px;
 }
 
 .option-columns {
-  display: flex;
- 
-  gap: 40px;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Reduced gap from previous 600px, matches snippet */
+    margin-top: 25px;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 40px; /* For checkbox text, matches snippet */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  font-size: 28px;
+    text-align: left; /* Align text left within columns for checkbox alignment */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Matches snippet */
+}
+
+.option-columns label {
+    font-size: 40px; /* Ensure label text matches column font-size */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #333; /* Darker color for readability */
+}
+
+.option-columns input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 15px;
 }
 
 
+/*-----------SMART FRIDGE SECTION (OVERLAY)-----------*/
+.smart-fridge-section {
+    position: relative;
+    width: 100%;
+    max-width: 1400px; /* Increased Max Width for the entire section */
+    margin: 60px auto; /* Centered with spacing from options section */
+    min-height: 850px; /* Increased Min Height to make fridge taller and visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px; /* Add some padding so the background image isn't right at the edge */
+    box-sizing: border-box; /* Include padding in width/height */
+    border-radius: 15px; /* Rounded corners for the entire section */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+    /* Fridge as Background Image - Initial State (Closed) */
+    background-image: url('fridge2.png'); /* Changed to fridge2.png for initial state */
+    background-size: contain; /* Ensures entire fridge is visible and scales down if needed */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat;
+    background-color: rgba(148, 148, 145, 0.1); /* Very subtle background color for the section */
+    transition: background-image 0.5s ease-in-out; /* Smooth transition for image change */
+}
+
+/* Class to apply for open fridge image */
+.smart-fridge-section.fridge-open {
+    background-image: url('fridge_open.PNG'); /* Open fridge image when class is applied */
+}
+
+/* .smart-fridge-overlay-content {
+    z-index: 2;
+    width: 80%; // Adjust width of the overlay content area 
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.3); // **Higher Translucency (more transparent)** 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #18230F; /* **Updated Default text color for better contrast** 
+    box-sizing: border-box;
+    position: relative;
+} */
+
+.smart-fridge-overlay-content h2 {
+    font-family: 'Jersey 10', sans-serif;
+    font-size: 2.5em;
+    color: #708A58; /* **Updated Heading color** - matching new theme */
+    margin-bottom: 20px;
+}
+
+.smart-fridge-overlay-content p {
+    color: #333; /* **Updated Paragraph text color** - darker for better readability */
+}
+
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.recipe-form label {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #18230F; /* **Updated label color** - very dark for contrast */
+    font-family: Arial, sans-serif;
+}
+.recipe-form input[type="text"] {
+    padding: 12px 15px;
+    border: 1px solid #708A58; /* **Updated border color** */
+    border-radius: 25px;
+    font-size: 1.1em;
+    width: 80%;
+    max-width: 350px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    color: #18230F; /* **Input text color** */
+}
+.recipe-form input[type="text"]::placeholder { /* Placeholder text color */
+    color: #888;
+}
+.recipe-form input[type="text"]:focus {
+    border-color: #5d7049; /* **Updated focus border color** */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(112, 138, 88, 0.3); /* Light glow */
+}
+.recipe-form button {
+    background-color: #708A58; /* **Updated button background color** */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: Arial, sans-serif;
+}
+.recipe-form button:hover {
+    background-color: #5d7049; /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+#loading {
+    font-style: italic;
+    color: #444; /* Darker loading text */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: none;
+}
+#errorMessage {
+    color: #d9534f;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+#generatedRecipeOutput {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95); /* Less translucent for recipe output itself for best readability */
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
+    min-height: 150px;
+    white-space: pre-wrap;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #18230F; /* **Updated text color for recipe output** - very dark for contrast */
+    overflow-y: auto;
+    max-height: 300px;
+    font-family: Arial, sans-serif;
+}
+
+#generatedRecipeOutput h3 {
+    font-size: 1.4em;
+    color: #708A58; /* **Updated Recipe Title Color** */
+    margin-bottom: 10px;
+    font-family: "Jersey 10", sans-serif;
+}
+#generatedRecipeOutput ul, #generatedRecipeOutput ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+#generatedRecipeOutput li {
+    margin-bottom: 3px;
+    color: #333; /* Slightly darker for list items */
+}
+
+/*-----------CONTACT SECTION-----------*/
 .contact {
-  background-color: #D1D8BE;
-  width: 100%;                /* Use 100% instead of 100vw */
-  margin: 0;
-  padding: -1;
-  box-sizing: border-box;
- 
+    background-color: #D1D8BE; /* Updated background color for contact section */
+    color: #18230F; /* Updated text color for contact section */
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 50px;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 35px; /* Adjust size to fit content */
 }
-
-
 .contact h2 {
-  font-size: 60px;
-  font-weight: 300;
-  font-family: "Jersey 10", sans-serif; /* uses Jersey 10 font */
-  color: #708A58;
-  text-align: center;
-  margin: 0 0 30px 0;
+    font-size: 60px;
+    font-weight: 300;
+    font-family: "Jersey 10", sans-serif;
+    color: #708A58; /* Updated heading color */
+    text-align: center;
+    margin: 0 0 30px 0;
 }
-
 .contact-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 0 20px 40px 20px; /* left & right padding to prevent cards touching edges */
-  box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px 40px 20px;
+    box-sizing: border-box;
 }
-
-
 .contact-card {
-  border: 2px solid #2D4F2B;
-  padding: 15px;
-  width: 250px;
-  font-family: "Jersey 10", sans-serif;
-  font-size: 25px;
-  background-color: #708A58;
-  border-radius: 10px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-weight: 100;
+    border: 2px solid #2D4F2B; /* Updated border color */
+    padding: 15px;
+    width: 250px;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 25px;
+    background-color: #708A58; /* Updated background color */
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 100;
 }
-
 .contact-card a {
-  color: inherit;             /* matches the surrounding text */
-  text-decoration: none;      /* removes underline */
-  transition: color 0.3s ease;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-
 .contact-card a:hover {
-  color: #F7edd2;             /* changes on hover */
-  text-decoration: none;      /* keeps it non-underlined */
+    color: #FFF1CA; /* Updated hover color */
+    text-decoration: none;
 }
 
 
-
-.option-columns {
-  display: flex;
-  justify-content: center;
-  gap: 600px;
-  margin-top: 15px;
-  font-family: "Jersey 10", sans-serif;
-  font-size: 40px;
-  
+/*-----------RESPONSIVE ADJUSTMENTS-----------*/
+@media (max-width: 768px) {
+    body {
+        padding-top: 50px; /* Adjust for smaller topnav */
+    }
+    .topnav a {
+        font-size: 20px;
+        padding: 10px 12px;
+    }
+    .content {
+        font-size: 2.8em;
+    }
+    .content2 {
+        font-size: 1.1em;
+    }
+    .option h2 {
+        font-size: 40px;
+    }
+    .option p {
+        font-size: 25px;
+    }
+    .option-columns {
+        gap: 30px; /* Adjust gap */
+        font-size: 30px;
+    }
+    .option-columns label {
+        font-size: 30px;
+    }
+    .smart-fridge-overlay-content {
+        width: 90%;
+        padding: 20px;
+    }
+    .recipe-form input[type="text"] {
+        width: 90%;
+    }
+    #generatedRecipeOutput {
+        max-height: 250px;
+    }
+    .contact {
+        font-size: 25px;
+    }
+    .contact h2 {
+        font-size: 45px;
+    }
+    .contact-card {
+        width: 100%; /* Full width cards on smaller screens */
+    }
 }
-.column {
-   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.smart_fridge img {
-  width: 700px;   /* or any desired width */
-  height:700px;   /* maintains aspect ratio */
-  display: block; /* removes inline spacing */
-  margin: 40px auto; /* centers the image */
-}
 
-
+@media (max-width: 480px) {
+    body {
+        padding-top: 40px; /* Adjust for smallest topnav */
+    }
+    .topnav a {
+        font-size: 16px;
+        padding: 8px 8px;
+    }
+    .content {
+        font-size: 2em;
+    }
+    .content2 {
+        font-size: 1em;
+    }
+    .overlay-text {
+        width: 95%;
+        padding: 15px;
+    }
+    .option {
+        margin-top: 30px;
+        padding: 20px 10px;
+    }
+    .option h2 {
+        font-size: 35px;
+    }
+    .option-columns {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 25px;
+    }
+    .option-columns label {
+        font-size: 25px;
+    }
+    .smart-fridge-section {
+        margin: 30px auto;
+        min-height: 650px; /* Adjusted min-height for small screens too */
+    }
+    .smart-fridge-overlay-content {
+        padding: 15px;
+        width: 95%;
+    }
+    .recipe-form input[type="text"],
+    .recipe-form button {
+        width: 90%;
+    }
+    #generatedRecipeOutput {
+        font-size: 0.9em;
+        padding: 15px;
+    }
+    .contact {
+        font-size: 20px;
+        padding: 20px 10px;
+    }
+}
