@@ -2,91 +2,163 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FIFO - Fridge in Food out</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
 
 <body>
-  <div class="topnav">
-    <a class="active" href="#about">About</a>
-    <a href="#options">Options</a>
-     <a href="#smart_fridge">Smart Fridge</a>
-    <a href="#contact">Contact</a>
-   
-  </div>
-   
-  <main class="main-content"  >
-      <div class="image-and-text-container">
-          <img src="fruits.png" alt="fruits" class="welcome-image" id="about">
-          <div class="overlay-text" >
-              <h1 class="content" >Don't know what to cook? FIFO will help you decide what to cook.</h1>
-              <h2 class="content2">To inspire creativity in the kitchen, reduce food waste, and simplify mealtime decisions using the power of AI and intuitive design. <br><br>"FIFO – Fridge in Food out” is an intelligent kitchen assistant that helps users make the most of their available ingredients. By using a simple input interface, users can enter an ingredient (or several) they currently have in their fridge or pantry. The program then searches a built-in recipe database and provides curated recipes that prominently feature those ingredients.</h2>
-          </div>
-      </div>
-
-    <div class="option" id="options">
-      Options: <br> 
-      <p>Please enter your dietary restrictions:</p>
-      <div class="option-columns">
-        <div class="column">
-          
-          <label><input type="checkbox" class="diet" value="Vegan"> Vegan</label>
-          <label><input type="checkbox" class="diet" value="Vegetarian"> Vegetarian</label>
-          <label><input type="checkbox" class="diet" value="Dairy-free"> Dairy-free</label>
-        </div>
-        <div class="column">
-          <label><input type="checkbox" class="diet" value="Pescatarian"> Pescatarian</label>
-          <label><input type="checkbox" class="diet" value="Keto"> Keto</label>
-          <label><input type="checkbox" class="diet" value="Halal"> Halal</label>
-        </div>
-      </div>
+    <div class="topnav">
+        <a class="active" href="#about">About</a>
+        <a href="#options">Options</a>
+        <a href="#smart_fridge_section">Smart Fridge</a> <a href="#contact">Contact</a>
     </div>
 
+    <main class="main-content">
+        <div class="image-and-text-container">
+            <img src="fruits.png" alt="fruits" class="welcome-image" id="about">
+            <div class="overlay-text">
+                <h1 class="content">Don't know what to cook? FIFO will help you decide what to cook.</h1>
+                <h2 class="content2">To inspire creativity in the kitchen, reduce food waste, and simplify mealtime decisions using the power of AI and intuitive design. <br><br>"FIFO – Fridge in Food out” is an intelligent kitchen assistant that helps users make the most of their available ingredients. By using a simple input interface, users can enter an ingredient (or several) they currently have in their fridge or pantry. The program then searches a built-in recipe database and provides curated recipes that prominently feature those ingredients.</h2>
+            </div>
+        </div>
 
-  </main>
-  <div class ="smart_fridge">
-    <img src="fridge.png" alt="smart_fridge" id="smart_fridge">
-  </div>
+        <div class="option" id="options">
+            <h2>Dietary Options:</h2> <p>Please select your dietary restrictions:</p>
+            <div class="option-columns">
+                <div class="column">
+                    <label><input type="checkbox" class="diet" value="Vegan"> Vegan</label>
+                    <label><input type="checkbox" class="diet" value="Vegetarian"> Vegetarian</label>
+                    <label><input type="checkbox" class="diet" value="Dairy-free"> Dairy-free</label>
+                </div>
+                <div class="column">
+                    <label><input type="checkbox" class="diet" value="Pescatarian"> Pescatarian</label>
+                    <label><input type="checkbox" class="diet" value="Keto"> Keto</label>
+                    <label><input type="checkbox" class="diet" value="Halal"> Halal</label>
+                </div>
+            </div>
+        </div>
+    </main>
 
-  
-    
+    <section class="smart-fridge-container" id="smart_fridge_section"> <img src="fridge.png" alt="smart_fridge">
+        <div class="smart-fridge-overlay-content">
+            <h2>Your Smart Fridge Assistant</h2>
+            <p>Enter a main ingredient you have, and FIFO will generate a recipe idea for you!</p>
+            <form class="recipe-form" id="smartFridgeRecipeForm">
+                <label for="smartFridgeIngredient">Main Ingredient:</label>
+                <input type="text" id="smartFridgeIngredient" name="ingredient" placeholder="e.g., Chicken, Tofu, Spinach" required>
+                <button type="submit">Get Recipe</button>
+            </form>
 
-  <!--<div class="contact" id="contact"><br><br><br> Contact us:<br>
-      Name: Sejal _________ <br>
-      Email: <a href="mailto:se731266@ucf.edu"> se731266@ucf.edu  <br></a>
-      Role: _______ <br>
-      Zodiac sign: ______ <br>
-      Hobbies: _________ &nbsp;
+            <div id="loading">Generating recipe... This might take a moment.</div>
+            <div id="errorMessage"></div>
+            <div id="generatedRecipeOutput">
+                <h3>Recipe Idea will appear here!</h3>
+                <p>Start by typing an ingredient above.</p>
+            </div>
+        </div>
+    </section>
+    <div class="contact" id="contact"><br><br><br> Contact us:<br>
+        Name: Sejal _________ <br>
+        Email: <a href="mailto:se731266@ucf.edu"> se731266@ucf.edu <br></a>
+        Role: _______ <br>
+        Zodiac sign: ______ <br>
+        Hobbies: _________ &nbsp;
 
-      Name: Samentha _________ <br>
-    &nbsp;Email: _____@ucf =.edu <br>
-    &nbsp;Role: _______ <br>
-    &nbsp;Zodiac sign: ______ <br>
-   Hobbies: _________ <br>
+        Name: Samentha _________ <br>
+        &nbsp;Email: _____@ucf =.edu <br>
+        &nbsp;Role: _______ <br>
+        &nbsp;Zodiac sign: ______ <br>
+        Hobbies: _________ <br>
 
-      Name: Michelle Moise <br>
-      Email: _____@ucf =.edu <br>
-      Role: _______ <br>
-      Zodiac sign: ______ <br>
-      Hobbies: _________ <br>
+        Name: Michelle Moise <br>
+        Email: _____@ucf =.edu <br>
+        Role: _______ <br>
+        Zodiac sign: ______ <br>
+        Hobbies: _________ <br>
 
-      Name: Apoorva Thirukazhukundram Shakila Raja <br>
-      Email: ap365218@ucf =.edu <br>
-      Role: _______ <br>
-      Zodiac sign: _____ <br>
-      Hobbies: _________ <br>
+        Name: Apoorva Thirukazhukundram Shakila Raja <br>
+        Email: ap365218@ucf =.edu <br>
+        Role: _______ <br>
+        Zodiac sign: _____ <br>
+        Hobbies: _________ <br>
+    </div>
 
-    
-    </div>-->
-  
-  <script src="script.js"></script>
-</body>
+    <script>
+        // Assuming your backend is running on http://localhost:3000
+        // **IMPORTANT**: If your backend is deployed somewhere else (e.g., Replit),
+        // update this URL accordingly.
+        const BACKEND_URL = 'http://localhost:3000';
+
+        document.getElementById('smartFridgeRecipeForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const ingredientInput = document.getElementById('smartFridgeIngredient');
+            const ingredient = ingredientInput.value.trim();
+            const recipeOutput = document.getElementById('generatedRecipeOutput');
+            const loadingIndicator = document.getElementById('loading');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Clear previous output and error
+            recipeOutput.innerHTML = `<h3>Recipe Idea will appear here!</h3><p>Generating...</p>`;
+            errorMessage.textContent = '';
+            loadingIndicator.style.display = 'block'; // Show loading message
+
+            if (!ingredient) {
+                errorMessage.textContent = 'Please enter a main ingredient.';
+                loadingIndicator.style.display = 'none';
+                recipeOutput.innerHTML = `<h3>Recipe Idea will appear here!</h3><p>Start by typing an ingredient above.</p>`;
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/generate-recipe`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ingredient: ingredient }),
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                let formattedRecipe = data.recipe.replace(/\n/g, '<br>');
+
+                // Optional: Attempt to bold "Ingredients:" and "Instructions:"
+                formattedRecipe = formattedRecipe.replace(/Ingredients:/g, '<strong>Ingredients:</strong>');
+                formattedRecipe = formattedRecipe.replace(/Instructions:/g, '<strong>Instructions:</strong>');
+
+                recipeOutput.innerHTML = `<h3>Your AI-Generated Recipe for "${ingredientInput.value}":</h3>${formattedRecipe}`;
+
+            } catch (error) {
+                console.error('Error fetching recipe:', error);
+                errorMessage.textContent = `Error generating recipe: ${error.message}. Please ensure your backend server is running correctly.`;
+                recipeOutput.innerHTML = `<h3>Recipe Generation Failed</h3><p>Please try again or check your backend server.</p>`;
+            } finally {
+                loadingIndicator.style.display = 'none'; // Hide loading message
+            }
+        });
+
+        // Optional: Add JavaScript for smooth scrolling in the topnav if not in script.js
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script src="script.js"></script> </body>
 
 </html>
