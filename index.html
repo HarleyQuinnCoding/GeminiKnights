@@ -10,13 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </head>
+</head>
 
 <body>
     <div class="topnav">
         <a class="active" href="#about">About</a>
         <a href="#options">Options</a>
-        <a href="#smart_fridge_section">Smart Fridge</a> <a href="#contact">Contact</a>
+        <a href="#smart_fridge_section">Smart Fridge</a>
+        <a href="#contact">Contact</a>
     </div>
 
     <main class="main-content">
@@ -29,7 +30,8 @@
         </div>
 
         <div class="option" id="options">
-            <h2>Dietary Options:</h2> <p>Please select your dietary restrictions:</p>
+            <h2>Dietary Options:</h2>
+            <p>Please select your dietary restrictions:</p>
             <div class="option-columns">
                 <div class="column">
                     <label><input type="checkbox" class="diet" value="Vegan"> Vegan</label>
@@ -45,14 +47,10 @@
         </div>
     </main>
 
-    <section class="smart-fridge-container" id="smart_fridge_section"> <img src="fridge.png" alt="smart_fridge">
+    <section class="smart-fridge-section" id="smart_fridge_section">
         <div class="smart-fridge-overlay-content">
-            <h2>Your Smart Fridge Assistant</h2>
-            <p>Enter a main ingredient you have, and FIFO will generate a recipe idea for you!</p>
             <form class="recipe-form" id="smartFridgeRecipeForm">
-                <label for="smartFridgeIngredient">Main Ingredient:</label>
-                <input type="text" id="smartFridgeIngredient" name="ingredient" placeholder="e.g., Chicken, Tofu, Spinach" required>
-                <button type="submit">Get Recipe</button>
+                <input type="text" id="smartFridgeIngredient" name="ingredient" placeholder="Main Ingredient:" required> <button type="submit">Get Recipe</button>
             </form>
 
             <div id="loading">Generating recipe... This might take a moment.</div>
@@ -90,13 +88,10 @@
     </div>
 
     <script>
-        // Assuming your backend is running on http://localhost:3000
-        // **IMPORTANT**: If your backend is deployed somewhere else (e.g., Replit),
-        // update this URL accordingly.
         const BACKEND_URL = 'http://localhost:3000';
 
         document.getElementById('smartFridgeRecipeForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
             const ingredientInput = document.getElementById('smartFridgeIngredient');
             const ingredient = ingredientInput.value.trim();
@@ -104,10 +99,16 @@
             const loadingIndicator = document.getElementById('loading');
             const errorMessage = document.getElementById('errorMessage');
 
-            // Clear previous output and error
+            // --- Collect selected dietary restrictions ---
+            const selectedDietaryRestrictions = [];
+            document.querySelectorAll('.option-columns input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedDietaryRestrictions.push(checkbox.value);
+            });
+            // ------------------------------------------
+
             recipeOutput.innerHTML = `<h3>Recipe Idea will appear here!</h3><p>Generating...</p>`;
             errorMessage.textContent = '';
-            loadingIndicator.style.display = 'block'; // Show loading message
+            loadingIndicator.style.display = 'block';
 
             if (!ingredient) {
                 errorMessage.textContent = 'Please enter a main ingredient.';
@@ -122,7 +123,12 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ ingredient: ingredient }),
+                    // --- Send both ingredient and dietary restrictions ---
+                    body: JSON.stringify({
+                        ingredient: ingredient,
+                        dietaryRestrictions: selectedDietaryRestrictions
+                    }),
+                    // ----------------------------------------------------
                 });
 
                 if (!response.ok) {
@@ -133,7 +139,6 @@
                 const data = await response.json();
                 let formattedRecipe = data.recipe.replace(/\n/g, '<br>');
 
-                // Optional: Attempt to bold "Ingredients:" and "Instructions:"
                 formattedRecipe = formattedRecipe.replace(/Ingredients:/g, '<strong>Ingredients:</strong>');
                 formattedRecipe = formattedRecipe.replace(/Instructions:/g, '<strong>Instructions:</strong>');
 
@@ -144,11 +149,10 @@
                 errorMessage.textContent = `Error generating recipe: ${error.message}. Please ensure your backend server is running correctly.`;
                 recipeOutput.innerHTML = `<h3>Recipe Generation Failed</h3><p>Please try again or check your backend server.</p>`;
             } finally {
-                loadingIndicator.style.display = 'none'; // Hide loading message
+                loadingIndicator.style.display = 'none';
             }
         });
 
-        // Optional: Add JavaScript for smooth scrolling in the topnav if not in script.js
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -159,6 +163,7 @@
             });
         });
     </script>
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 
 </html>
