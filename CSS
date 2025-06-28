@@ -51,17 +51,10 @@ body {
 .topnav a.active {
   font-family: "Jersey 10", sans-serif;
   font-size: 25px;
-  background-color: #FFEAD8;
-  color: black;
+  background-color: #7c4c2a;
+  color: white;
 }
 
-.header .fa-caret-down {
-  font-size: 30px;
-  text-align: 10px;
-
-
-
-}
 
 
 
@@ -151,14 +144,22 @@ body {
 }
 .option-columns {
   display: flex;
- 
-  gap: 20px;
+  justify-content: center;
+  gap: 600px;
   margin-top: 15px;
   font-family: "Jersey 10", sans-serif;
-  font-size: 20px;
+  font-size: 40px;
 }
 .column {
+   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+.smart_fridge img {
+  width: 700px;   /* or any desired width */
+  height:700px;   /* maintains aspect ratio */
+  display: block; /* removes inline spacing */
+  margin: 40px auto; /* centers the image */
+}
+
