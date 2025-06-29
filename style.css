@@ -27,7 +27,6 @@ body {
     left: 0;
     width: 100%;
     z-index: 999; /* Ensure it's above other content */
-    text-align: center; /* Center the navigation links */
     padding: 0; /* Reset padding here, links will have their own */
 }
 
@@ -38,7 +37,6 @@ body {
     color: black;
     font-family: "Jersey 10", sans-serif;
     font-size: 25px;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -404,6 +402,20 @@ body {
     text-decoration: none;
 }
 
+.contact-header i.fa-html5 {
+  font-size: 60px;
+  color: #2D4F2B;
+}
+
+.contact-header i.fa-css3-alt {
+  font-size: 60px;
+  color: #2D4F2B;
+}
+
+.contact-header i.fa-js {
+  font-size: 60px;
+  color: #2D4F2B;
+}
 
 /*-----------RESPONSIVE ADJUSTMENTS-----------*/
 @media (max-width: 768px) {
